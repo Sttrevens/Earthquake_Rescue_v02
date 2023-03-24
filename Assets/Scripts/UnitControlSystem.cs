@@ -41,7 +41,13 @@ public class UnitControlSystem : MonoBehaviour
     public void showdistanceRescueText()
     {
         distanceWarningText.text = "Too far for rescue!";
-        StartCoroutine(HideDistanceWarningTextAfterDelay(3f));
+        StartCoroutine(HideDistanceWarningTextAfterDelay(2f));
+    }
+
+    public void showdistanceHealText()
+    {
+        distanceWarningText.text = "Too far for healing!";
+        StartCoroutine(HideDistanceWarningTextAfterDelay(2f));
     }
 
     IEnumerator HideDistanceWarningTextAfterDelay(float delay)

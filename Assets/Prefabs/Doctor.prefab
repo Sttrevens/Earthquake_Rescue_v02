@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c77c2d1f2f49746a6d4d22b571ad01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 25
 --- !u!95 &6540182257996792823
 Animator:
   serializedVersion: 5

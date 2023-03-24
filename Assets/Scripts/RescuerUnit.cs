@@ -8,6 +8,7 @@ namespace UnitDetection
     public class RescuerUnit : Unit
     {
         //private TextMeshProUGUI distanceWarningText;
+        Animator animator;
 
         void Start()
         {
@@ -17,7 +18,7 @@ namespace UnitDetection
             //    {
             //        Debug.Log("jiba");
             //    }
-            
+            animator = GetComponent<Animator>();
         }
 
         public void StartRescueTask(Rubble rubble)
@@ -32,10 +33,6 @@ namespace UnitDetection
             }
             else
             {
-                if (controlSystem == null)
-                {
-                    Debug.Log("jiba");
-                }
                 controlSystem.showdistanceRescueText();
             }
         }
@@ -46,13 +43,14 @@ namespace UnitDetection
             // 消耗行动力并播放挖掘动画
             ActionPoints -= 2;
             // Play digging animation
-
+            animator.SetBool("isSaving", true);
             // 等待挖掘动画完成
-            yield return new WaitForSeconds(2f); // 假设挖掘动画持续2秒
+            yield return new WaitForSeconds(5f); // 假设挖掘动画持续2秒
 
             rubble.OnRescueCompleted();
 
             _timeSinceLastAction = 0f;
+            animator.SetBool("isSaving", false);
         }
 
         private void Update()
