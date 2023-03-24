@@ -50,6 +50,12 @@ public class UnitControlSystem : MonoBehaviour
         StartCoroutine(HideDistanceWarningTextAfterDelay(2f));
     }
 
+    public void shownoBudgetText()
+    {
+        distanceWarningText.text = "Insufficent budget!";
+        StartCoroutine(HideDistanceWarningTextAfterDelay(2f));
+    }
+
     IEnumerator HideDistanceWarningTextAfterDelay(float delay)
     {
         distanceWarningText.gameObject.SetActive(true); // 显示文本
@@ -67,13 +73,15 @@ public class UnitControlSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // Left Mouse Button Pressed
             selectionAreaTransform.gameObject.SetActive(true);
-            startPosition = UtilsClass.GetMouseWorldPosition();
+            startPosition = UtilsClas.GetMouseWorldPosition();
         }
 
         if (Input.GetMouseButton(0))
         {
-            Vector3 currentMousePosition = UtilsClass.GetMouseWorldPosition();
+            // Left Mouse Button Held Down
+            Vector3 currentMousePosition = UtilsClas.GetMouseWorldPosition();
             Vector3 lowerLeft = new Vector3(
                 Mathf.Min(startPosition.x, currentMousePosition.x),
                 Mathf.Min(startPosition.y, currentMousePosition.y)
@@ -90,7 +98,7 @@ public class UnitControlSystem : MonoBehaviour
         {
             selectionAreaTransform.gameObject.SetActive(false);
 
-            Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, UtilsClass.GetMouseWorldPosition());
+            Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, UtilsClas.GetMouseWorldPosition());
 
             foreach (Unit unit in selectedUnitList)
             {

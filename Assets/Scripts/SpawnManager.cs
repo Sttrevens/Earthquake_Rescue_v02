@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     private SpawnTypeListSO spawnTypeList;
     private SpawnTypeSO activeSpawnType;
     private ResourceTypeListSO resourceTypeList;
-    private int cost = 0;
+    private int cost = 20;
 
     public ResourceTypeSO resourceType;
 
@@ -39,12 +39,23 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        UnitControlSystem controlSystem = GameObject.Find("UnitControlSystem").GetComponent<UnitControlSystem>();
+        int budget = ResourceManager.Instance.GetResourceAmount(resourceTypeList.list[0]);
+        int target = ResourceManager.Instance.GetResourceAmount(resourceTypeList.list[1]);
+
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             if (activeSpawnType != null)
             {
-                Instantiate(activeSpawnType.prefab, UtilsClas.GetMouseWorldPosition(), Quaternion.identity);
-                ResourceManager.Instance.AddResource(resourceType, -cost);
+                if (budget >= cost)
+                {
+                    Instantiate(activeSpawnType.prefab, UtilsClas.GetMouseWorldPosition(), Quaternion.identity);
+                    ResourceManager.Instance.AddResource(resourceType, -cost);
+                }
+                else
+                {
+                    controlSystem.shownoBudgetText();
+                }
             }
         }
     }

@@ -19,12 +19,12 @@ public class GameRTSController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             // Left Mouse Button Pressed
             selectionAreaTransform.gameObject.SetActive(true);
-            startPosition = UtilsClass.GetMouseWorldPosition();
+            startPosition = UtilsClas.GetMouseWorldPosition();
         }
 
         if (Input.GetMouseButton(0)) {
             // Left Mouse Button Held Down
-            Vector3 currentMousePosition = UtilsClass.GetMouseWorldPosition();
+            Vector3 currentMousePosition = UtilsClas.GetMouseWorldPosition();
             Vector3 lowerLeft = new Vector3(
                 Mathf.Min(startPosition.x, currentMousePosition.x),
                 Mathf.Min(startPosition.y, currentMousePosition.y)
@@ -41,7 +41,7 @@ public class GameRTSController : MonoBehaviour {
             // Left Mouse Button Released
             selectionAreaTransform.gameObject.SetActive(false);
 
-            Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, UtilsClass.GetMouseWorldPosition());
+            Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, UtilsClas.GetMouseWorldPosition());
 
             // Deselect all Units
             foreach (UnitRTS unitRTS in selectedUnitRTSList) {

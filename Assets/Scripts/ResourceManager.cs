@@ -56,4 +56,17 @@ public class ResourceManager : MonoBehaviour
     {
         return resourceAmountDictionary[resourceType];
     }
+
+    public bool IsResourceAmountZero(ResourceTypeSO resourceType)
+    {
+        if (resourceAmountDictionary.ContainsKey(resourceType))
+        {
+            return resourceAmountDictionary[resourceType] == 0;
+        }
+        else
+        {
+            // 如果资源类型不在字典中，我们可以假定该资源的数量为0。
+            return true;
+        }
+    }
 }
