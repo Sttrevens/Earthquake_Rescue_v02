@@ -52,6 +52,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     Instantiate(activeSpawnType.prefab, UtilsClas.GetMouseWorldPosition(), Quaternion.identity);
                     ResourceManager.Instance.AddResource(resourceType, -cost);
+                    GameController.Instance.AddToBudgetUsed(cost);
                 }
                 else
                 {

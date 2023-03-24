@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnitDetection;
-using Mono.Cecil;
 
 public class Survivor : MonoBehaviour
 {
@@ -46,6 +45,7 @@ public class Survivor : MonoBehaviour
             // 在这里更新幸存者的外观或状态，以表示他们已经被治疗
             animator.SetTrigger("isHealed");
             ResourceManager.Instance.AddResource(target, -1);
+            GameController.Instance.UpdateSurvivorsRemaining(-1);
         }
     }
 }

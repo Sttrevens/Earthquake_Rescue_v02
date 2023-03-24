@@ -52,7 +52,7 @@ public class UnitControlSystem : MonoBehaviour
 
     public void shownoBudgetText()
     {
-        distanceWarningText.text = "Insufficent !";
+        distanceWarningText.text = "Insufficent budget!";
         StartCoroutine(HideDistanceWarningTextAfterDelay(2f));
     }
 

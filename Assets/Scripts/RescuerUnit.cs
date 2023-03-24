@@ -55,7 +55,7 @@ namespace UnitDetection
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 //Debug.Log("按Q有用");
