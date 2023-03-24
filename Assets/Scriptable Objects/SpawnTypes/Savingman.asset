@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameString: "\u641C\u6551\u5458"
   prefab: {fileID: 3072097933690095637, guid: bd21b2e9967054dbb8caf5a14ba265b8, type: 3}
-  sprite: {fileID: 21300000, guid: aa1f53278dabfb84e86dc2d17c172e0d, type: 3}
+  sprite: {fileID: 21300000, guid: d4fc85af002e14bc7ab29e9a43e40984, type: 3}
