@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,13 @@ using UnityEngine.EventSystems;
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Instance { get; private set; }
+
+    public event EventHandler<OnActiveSpawnTypeChangedEventArgs> OnActiveSpawnTypeChanged;
+
+    public class OnActiveSpawnTypeChangedEventArgs : EventArgs
+    {
+        public SpawnTypeSO activeSpawnType;
+    }
 
     private Camera mainCamera;
     private SpawnTypeListSO spawnTypeList;
@@ -35,22 +43,19 @@ public class SpawnManager : MonoBehaviour
         {
             if (activeSpawnType != null)
             {
-                Instantiate(activeSpawnType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+                Instantiate(activeSpawnType.prefab, UtilsClas.GetMouseWorldPosition(), Quaternion.identity);
                 ResourceManager.Instance.AddResource(resourceType, -cost);
             }
         }
     }
 
-    private Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
-        return mouseWorldPosition;
-    }
+    
 
     public void SetActiveSpawnType(SpawnTypeSO spawnType)
     {
         activeSpawnType = spawnType;
+
+        OnActiveSpawnTypeChanged?.Invoke(this, new OnActiveSpawnTypeChangedEventArgs { activeSpawnType = activeSpawnType });
     }
 
     public SpawnTypeSO GetActiveSpawnType()

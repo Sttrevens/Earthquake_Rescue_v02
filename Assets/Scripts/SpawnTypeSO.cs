@@ -8,4 +8,5 @@ public class SpawnTypeSO : ScriptableObject
     public string nameString;
     public Transform prefab;
     public Sprite sprite;
+    public Sprite ghostSprite;
 }
