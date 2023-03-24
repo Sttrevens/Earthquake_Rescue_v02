@@ -9,22 +9,30 @@ namespace UnitDetection
         public float healRange = 2f; // 治疗范围
         public float healDuration = 2f; // 治疗时长
 
+        Animator animator;
+
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         public void StartHealTask(Survivor survivor)
         {
+            UnitControlSystem controlSystem = GameObject.Find("UnitControlSystem").GetComponent<UnitControlSystem>();
             if (Vector3.Distance(transform.position, survivor.transform.position) <= healRange)
             {
                 StartCoroutine(Heal(survivor));
             }
             else
             {
-                Debug.Log("医生距离废墟太远，无法进行治疗。");
+                controlSystem.showdistanceHealText();
             }
         }
 
         private IEnumerator Heal(Survivor survivor)
         {
             // 播放治疗动画
-            // animator.SetTrigger("Heal");
+            animator.SetTrigger("isHealing");
 
             // 治疗过程
             yield return new WaitForSeconds(healDuration);
@@ -32,6 +40,7 @@ namespace UnitDetection
             // 治疗结束，改变幸存者状态
             survivor.Healed();
 
+            animator.SetBool("isHealing", false);
             // 恢复行动力属性值
             // RestoreActionPoints();
         }

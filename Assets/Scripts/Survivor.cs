@@ -5,6 +5,13 @@ public class Survivor : MonoBehaviour
 {
     private bool isHealed = false;
 
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     //private void OnMouseDown()
     //{
     //    if (UnitControlSystem.Instance.IsDoctorSelected())
@@ -25,6 +32,6 @@ public class Survivor : MonoBehaviour
     {
         isHealed = true;
         // 在这里更新幸存者的外观或状态，以表示他们已经被治疗
-        Debug.Log("Healed");
+        animator.SetTrigger("isHealed");
     }
 }
