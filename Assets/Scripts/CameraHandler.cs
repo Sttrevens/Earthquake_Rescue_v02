@@ -30,7 +30,7 @@ public class CameraHandler : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDir = new Vector3(x, y).normalized;
-        float moveSpeed = 30f;
+        float moveSpeed = 15f;
 
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }

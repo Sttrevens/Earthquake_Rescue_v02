@@ -9,4 +9,5 @@ public class SpawnTypeSO : ScriptableObject
     public Transform prefab;
     public Sprite sprite;
     public Sprite ghostSprite;
+    public int cost;
 }

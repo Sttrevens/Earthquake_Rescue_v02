@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -12,6 +13,12 @@ public class ResourceManager : MonoBehaviour
 
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
 
+    public int initialbudget;
+    public int initialtarget;
+
+    public ResourceTypeSO budgetSO;
+    public ResourceTypeSO targetSO;
+
     private void Awake()
     {
         Instance = this;
@@ -19,11 +26,8 @@ public class ResourceManager : MonoBehaviour
 
         ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
 
-        foreach (ResourceTypeSO resourceType in resourceTypeList.list)
-        {
-            resourceAmountDictionary[resourceType] = 100;
-        }
-        TestLogResourceAmountDictionary();
+        resourceAmountDictionary[budgetSO] = initialbudget;
+        resourceAmountDictionary[targetSO] = initialtarget;
     }
 
     private void Update()

@@ -15,3 +15,5 @@ MonoBehaviour:
   nameString: "\u6551\u63F4\u76F4\u5347\u673A"
   prefab: {fileID: 319769769264829576, guid: c6f1930e021f48d4fb0182ebecac4c0a, type: 3}
   sprite: {fileID: 21300000, guid: a4b577455b561df4b983585ae0dc8d98, type: 3}
+  ghostSprite: {fileID: 21300000, guid: a4b577455b561df4b983585ae0dc8d98, type: 3}
+  cost: 300

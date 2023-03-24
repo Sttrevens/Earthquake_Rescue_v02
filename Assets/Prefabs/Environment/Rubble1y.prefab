@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 960680235261121351}
   - component: {fileID: 6005907378968064487}
   m_Layer: 0
-  m_Name: Rubble1
+  m_Name: Rubble1y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   survivorPrefab: {fileID: 4420250244006096003, guid: 709139bbb284f42acb766de0341eea98, type: 3}
-  survivorProbability: 0.5
+  hasSurvivor: 1
 --- !u!60 &6005907378968064487
 PolygonCollider2D:
   m_ObjectHideFlags: 0

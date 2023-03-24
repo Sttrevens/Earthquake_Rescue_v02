@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     private SpawnTypeListSO spawnTypeList;
     private SpawnTypeSO activeSpawnType;
     private ResourceTypeListSO resourceTypeList;
-    private int cost = 20;
+    private int cost = 0;
 
     public ResourceTypeSO resourceType;
 
@@ -47,6 +47,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (activeSpawnType != null)
             {
+                cost = activeSpawnType.cost;
                 if (budget >= cost)
                 {
                     Instantiate(activeSpawnType.prefab, UtilsClas.GetMouseWorldPosition(), Quaternion.identity);
