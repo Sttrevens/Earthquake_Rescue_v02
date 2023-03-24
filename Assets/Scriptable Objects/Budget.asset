@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c105601fa296045bce6252191aab2a, type: 3}
+  m_Name: Budget
+  m_EditorClassIdentifier: 
+  nameString: "\u6551\u63F4\u9884\u7B97"
+  sprite: {fileID: 7087177730364407166, guid: 800ba3bf735a10e489e5a7ac58ce55b8, type: 3}
